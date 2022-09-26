@@ -27,9 +27,8 @@ def create_star_list(filename):
         for line in fileIn:
             line = line.strip().split()
             for i in range(5):
-                line[i] = float(line[i])
-            
-                star_list.append(line)
+                line[i] = float(line[i])       
+            star_list.append(line)
     
             
     return star_list
