@@ -4,7 +4,6 @@ import csv
 def sort_pokemon_type(filename):
     pokemon_dictionary = {}
     
-
     with open(filename) as fileIn:
         fileIn.readline()
         reader = csv.reader(fileIn)
