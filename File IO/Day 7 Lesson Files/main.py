@@ -43,28 +43,28 @@ def parse_occupations(filename):
 
     return occupations
             
-def generate_names(first_names_list, last_names_list):
-    name = f'{random.choice(first_names_list)} {random.choice(last_names_list)}'
+def generate_names():
+    names = parse_names(r"names.csv")
+    name = f'{random.choice(names[0])} {random.choice(names[1])}'
     return name
+
+        
+def generate_salary():
+    salary = f'${str(random.randint(25000, 125000))}'
+    return salary
 
 
 def generate_people():
     people = []
     for i in range(500):
         id = generate_id()
-        name = generate_names(parse_names(r"names.csv")[0], parse_names(r"names.csv")[1])
+        name = generate_names()
         occupation = random.choice(parse_occupations(r"occupations.csv"))
         salary = generate_salary()
         person = f'{id}, {name}, {occupation}, {salary}'
         people.append(person)
     return people
         
-        
-        
-def generate_salary():
-    salary = f'${str(random.randint(25000, 125000))}"'
-    return salary
-
 
 def write_to_file(filename, people):
     with open(filename, "w") as fileOut:
@@ -73,6 +73,7 @@ def write_to_file(filename, people):
             s = f'{person}\n'
             fileOut.write(s)
     
+
 def main():
     people_list = generate_people()
     write_to_file(r"people.csv", people_list)
