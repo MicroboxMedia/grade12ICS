@@ -77,7 +77,7 @@ def write_to_file(filename, people):
 def main():
     people_list = generate_people()
     write_to_file(r"people.csv", people_list)
+    print("Generated File")
     
 
 main()
-print("Generated File")
