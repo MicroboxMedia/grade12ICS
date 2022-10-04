@@ -61,18 +61,18 @@ def generate_people():
         name = generate_names()
         occupation = random.choice(parse_occupations(r"occupations.csv"))
         salary = generate_salary()
-        person = f'{id}, {name}, {occupation}, {salary}'
+        person = [id, name, occupation,salary]
         people.append(person)
     return people
         
 
 def write_to_file(filename, people):
     with open(filename, "w") as fileOut:
-        writer = csv.writer(fileOut)
-        writer.writerow(f'Id Key, Name, Occupation, Salary\n')
+        writer = csv.writer(fileOut, delimiter=",")
+        header = ['Id Key', 'Name', 'Occupation', 'Salary']
+        writer.writerow(header)
         for person in people:
-            s = f'{person}\n'
-            writer.writerow(s)
+            writer.writerow(person)
     
 
 def main():
