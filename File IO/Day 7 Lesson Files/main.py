@@ -68,7 +68,7 @@ def generate_people():
 
 def write_to_file(filename, people):
     with open(filename, "w") as fileOut:
-        writer = csv.writer(fileOut0)
+        writer = csv.writer(fileOut)
         writer.writerow(f'Id Key, Name, Occupation, Salary\n')
         for person in people:
             s = f'{person}\n'
